@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://your-vercel-domain.vercel.app/sitemap.xml", // Make sure to replace this if you get a custom domain
+    sitemap: "https://linke-app.vercel.app/sitemap.xml",
   };
 }

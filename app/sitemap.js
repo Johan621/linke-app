@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://your-vercel-domain.vercel.app", // Replace with your actual deployed URL later
+      url: "https://linke-app.vercel.app",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
