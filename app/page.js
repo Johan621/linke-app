@@ -233,6 +233,9 @@ export default function Home() {
 
   const handleDeleteLink = useCallback(async (id) => {
     await store.deleteLink(id);
+    if (user) {
+      await supabase.from("links").delete().eq("id", id);
+    }
     await loadData();
     showToast("Link removed");
     if (user) runSync();
@@ -251,6 +254,9 @@ export default function Home() {
 
   const handleDeleteFolder = useCallback(async (id) => {
     await store.deleteFolder(id);
+    if (user) {
+      await supabase.from("folders").delete().eq("id", id);
+    }
     if (activeFolder === id) setActiveFolder("all");
     await loadData();
     showToast("Folder deleted");
