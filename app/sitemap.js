@@ -1,10 +1,16 @@
 export default function sitemap() {
-  return [
-    {
-      url: "https://linke-app.vercel.app",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+  const baseUrl = 'https://linke-app.vercel.app';
+  
+  const routes = [
+    '',
+    '/features/offline-sync',
+    '/features/tags-search',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly',
+    priority: route === '' ? 1.0 : 0.8,
+  }));
+
+  return routes;
 }
