@@ -90,6 +90,8 @@ export default function Home() {
       if (session?.user) {
         setUser(session.user);
         runSync();
+      } else {
+        setShowAuthModal(true);
       }
       
       setDbReady(true);
