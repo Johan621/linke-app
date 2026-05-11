@@ -1,18 +1,40 @@
 import "./globals.css";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata = {
-  title: "Linke — Save Links Effortlessly",
-  description:
-    "Linke is an offline-first link management PWA. Paste a URL, auto-fetch metadata, organize with folders and tags, and search across all your saved links — even offline.",
-  keywords: ["link manager", "bookmark manager", "PWA", "offline", "URL organizer"],
+  metadataBase: new URL('https://linke-app.vercel.app'),
+  title: {
+    default: 'Linke | Fast Offline Bookmark Manager',
+    template: '%s | Linke',
+  },
+  description: 'An offline-first, lightning-fast bookmark manager. Save, organize, and search your links seamlessly without relying on the cloud.',
+  keywords: ['offline bookmark manager', 'save links app', 'PWA bookmark tool', 'developer link organizer'],
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Linke",
   },
+  openGraph: {
+    title: 'Linke | Fast Offline Bookmark Manager',
+    description: 'Save and organize your links instantly with offline-first capabilities.',
+    url: 'https://linke-app.vercel.app',
+    siteName: 'Linke',
+    images: [{ url: '/linke_social_logo.jpg', width: 1200, height: 630 }],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Linke | Offline Bookmark Manager',
+    description: 'Save and organize your links instantly.',
+    images: ['/linke_social_logo.jpg'],
+  },
   verification: {
     google: "hcbBZVvpQo1tmPEu3xkr1h6L9qRMltCni4AtKzvF3P4",
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 
@@ -34,6 +56,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <JsonLd />
       </head>
       <body>{children}</body>
     </html>
